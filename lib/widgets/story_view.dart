@@ -408,9 +408,12 @@ class StoryView extends StatefulWidget {
   // Controls the playback of the stories
   final StoryController controller;
 
+  final Color color;
+
   StoryView({
     @required this.storyItems,
     @required this.controller,
+    this.color,
     this.onComplete,
     this.onStoryShow,
     this.progressPosition = ProgressPosition.top,
@@ -626,7 +629,7 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: widget.color??Colors.white,
       child: Stack(
         children: <Widget>[
           _currentView,
@@ -639,8 +642,8 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
               // we use SafeArea here for notched and bezeles phones
               child: Container(
                 padding: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
+                  horizontal: 20,
+                  vertical: 10,
                 ),
                 child: PageBar(
                   widget.storyItems
