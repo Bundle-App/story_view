@@ -645,7 +645,8 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                   horizontal: 20,
                   vertical: 10,
                 ),
-                child: PageBar(
+                child: Column(children: <Widget>[
+                  PageBar(
                   widget.storyItems
                       .map((it) => PageData(it.duration, it.shown))
                       .toList(),
@@ -655,6 +656,28 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                       ? IndicatorHeight.small
                       : IndicatorHeight.large,
                 ),
+                SizedBox(height:10),
+                Align(alignment: Alignment.topRight,child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      color: Colors.white.withOpacity(0.8),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap:(){ Navigator.pop(context);},
+                          child: Image.asset(
+                            BundleImageAssets.xClose,
+                            color: bundlePurple,
+                            height: 24,
+                            width: 24,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),)
+                ],),
               ),
             ),
           ),
