@@ -722,7 +722,7 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                 width: 70),
           ),
           Align(alignment: Alignment.topRight,child: 
-                Padding(padding: EdgeInsets.only(top:30),child: ClipRRect(
+                Padding(padding: EdgeInsets.only(top:30,right: 20),child: ClipRRect(
                     borderRadius: BorderRadius.circular(30),
                     child: Container(
                       height: 30,
