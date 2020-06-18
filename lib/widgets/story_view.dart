@@ -101,6 +101,20 @@ class StoryItem {
     );
   }
 
+  //NOTE Adding this for Bundle Use case
+  static StoryItem widget({
+    @required Widget child,
+    Duration duration,
+        bool shown = false,
+  }) {
+    return StoryItem(
+      child,
+      shown: shown,
+      duration: duration ?? Duration(seconds: 3),
+    );
+  }
+
+
   /// Factory constructor for page images. [controller] should be same instance as
   /// one passed to the `StoryView`
   factory StoryItem.pageImage({
