@@ -733,8 +733,8 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                         child: InkWell(
                           onTap:(){ Navigator.pop(context);},
                           child: Image.asset(
-                            BundleImageAssets.xClose,
-                            color: bundlePurple,
+                            "assets/images/x.png",
+                            color: Color.fromRGBO(33, 10, 84, 1),
                             height: 24,
                             width: 24,
                           ),
