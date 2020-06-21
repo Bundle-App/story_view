@@ -1,13 +1,14 @@
+import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
-import 'dart:async';
 
-import 'package:flutter/material.dart';
-import 'story_video.dart';
-import 'story_image.dart';
 import 'package:bundle_app/src/resources/index.dart';
+import 'package:flutter/material.dart';
+
 import '../controller/story_controller.dart';
 import '../utils.dart';
+import 'story_image.dart';
+import 'story_video.dart';
 
 /// Indicates where the progress indicators should be placed.
 enum ProgressPosition { top, bottom }
@@ -105,7 +106,7 @@ class StoryItem {
   static StoryItem widget({
     @required Widget child,
     Duration duration,
-        bool shown = false,
+    bool shown = false,
   }) {
     return StoryItem(
       child,
@@ -113,7 +114,6 @@ class StoryItem {
       duration: duration ?? Duration(seconds: 3),
     );
   }
-
 
   /// Factory constructor for page images. [controller] should be same instance as
   /// one passed to the `StoryView`
@@ -629,7 +629,7 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: widget.color??Colors.white,
+      color: widget.color ?? Colors.white,
       child: Stack(
         children: <Widget>[
           _currentView,
@@ -645,8 +645,7 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                   horizontal: 20,
                   vertical: 10,
                 ),
-                child:  
-                  PageBar(
+                child: PageBar(
                   widget.storyItems
                       .map((it) => PageData(it.duration, it.shown))
                       .toList(),
@@ -655,8 +654,8 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                   indicatorHeight: widget.inline
                       ? IndicatorHeight.small
                       : IndicatorHeight.large,
-                ),),
-             
+                ),
+              ),
             ),
           ),
           Align(
@@ -721,28 +720,34 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                 }),
                 width: 70),
           ),
-          Align(alignment: Alignment.topRight,child: 
-                Padding(padding: EdgeInsets.only(top:30,right: 20),child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30),
-                    child: Container(
-                      height: 30,
-                      width: 30,
-                      color: Colors.white.withOpacity(0.8),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap:(){ Navigator.pop(context);},
-                          child: Image.asset(
-                            BundleImageAssets.xClose,
-                            color: Color.fromRGBO(33, 10, 84, 1),
-                            height: 24,
-                            width: 24,
-                          ),
-                        ),
+          Align(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: EdgeInsets.only(top: 30, right: 20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  color: Colors.white.withOpacity(0.8),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Image.asset(
+                        BundleImageAssets.xClose,
+                        color: Color.fromRGBO(33, 10, 84, 1),
+                        height: 24,
+                        width: 24,
                       ),
                     ),
-                  ),)
-                ,)
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
