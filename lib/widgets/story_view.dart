@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'story_video.dart';
 import 'story_image.dart';
-
+import 'package:bundle_app/src/resources/index.dart';
 import '../controller/story_controller.dart';
 import '../utils.dart';
 
@@ -733,7 +733,7 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                         child: InkWell(
                           onTap:(){ Navigator.pop(context);},
                           child: Image.asset(
-                            "assets/images/x.png",
+                            BundleImageAssets.xClose,
                             color: Color.fromRGBO(33, 10, 84, 1),
                             height: 24,
                             width: 24,
